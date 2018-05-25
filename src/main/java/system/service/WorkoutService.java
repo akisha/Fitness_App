@@ -25,7 +25,7 @@ public class WorkoutService
     private PassDao passDao;
 
     @Autowired
-    public void setFoodDao(WorkoutDao workoutDao) {
+    public void setWorkoutDao(WorkoutDao workoutDao) {
         this.workoutDao = workoutDao;
     }
 
@@ -137,6 +137,8 @@ public class WorkoutService
         if (!user.getName().equals("") && !user.getPassword().equals("") && users.isEmpty()) {
             User newUser = new User();
             newUser.setName(user.getName());
+            newUser.setRating(0);
+            newUser.setVote(0);
             newUser.setPassword(WorkoutService.toMD5(user.getPassword()));
             newUser.setRole("ROLE_USER");
             userDao.saveUser(newUser);
@@ -187,6 +189,8 @@ public class WorkoutService
         return passDao.getPass(id);
     }
 
+
+
     static public String toMD5(String md5) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -206,7 +210,6 @@ public class WorkoutService
     {
         if (user.getName()!=null && user.getPassword()!=null){
             user.setRole("ROLE_ADMIN");
-            user.setPassword(toMD5(user.getPassword()));
             userDao.saveUser(user);
         }
     }
@@ -215,7 +218,6 @@ public class WorkoutService
     {
         if (user.getName()!=null && user.getPassword()!=null){
             user.setRole("ROLE_MANAGER");
-            user.setPassword(toMD5(user.getPassword()));
             userDao.saveUser(user);
         }
     }
@@ -224,7 +226,6 @@ public class WorkoutService
     {
         if (user.getName()!=null && user.getPassword()!=null){
             user.setRole("ROLE_MANAGER");
-            user.setPassword(toMD5(user.getPassword()));
             userDao.saveUser(user);
         }
     }

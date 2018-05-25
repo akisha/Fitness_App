@@ -51,51 +51,6 @@ app.controller('getController', function ($scope, $http, $location, $window) {
             $scope.workouts = response.data;
         });
     };
-
-    $scope.getFoods = function () {
-        var url = "getFoods";
-        $http.get(url, config).then(function (response) {
-            $scope.sort = 'Все занятия';
-            $scope.foods = response.data;
-
-            $scope.setSort = function (sortName) {
-                $scope.sort = sortName;
-            };
-        });
-    };
-
-    $scope.getLastCart = function () {
-        var url = "getLastCart";
-        $http.get(url, config).then(function (response) {
-            $scope.cart = response.data;
-        });
-    };
-
-    $scope.getCarts = function () {
-        var url = "getCarts";
-        $http.get(url, config).then(function (response) {
-            $scope.carts = response.data;
-        });
-    };
-
-    $scope.getFreeDrivers = function () {
-        var url = "getFreeDrivers";
-        $http.get(url, config).then(function (response) {
-            $scope.drivers = response.data;
-        });
-    };
-
-    $scope.getCartsForDelivery = function () {
-        var url = "getCartsForDelivery";
-        $http.get(url, config).then(function (response) {
-            $scope.cartsForDelivery = response.data;
-        });
-    };
-
-    $scope.getDate = function (t) {
-        return new Date(t).toLocaleString();
-    }
-
 });
 
 app.controller('postController', function ($scope, $http, $location, $window) {
@@ -122,23 +77,27 @@ app.controller('postController', function ($scope, $http, $location, $window) {
     $scope.setId = function (Id) {
         id = Id;
     };
-    $scope.addFoodToCart = function () {
-        var url = "addFoodToCart";
+    $scope.addWorkoutToUser = function () {
+        var url = "addWorkoutToUser";
         var data = {
             id: id
         };
         $http.post(url, data, config).then(function (response) {
-            $window.location.href = '/cart';
+            $window.location.href = '/home';
         });
     };
 
-    $scope.deleteFromCart = function () {
-        var url = "deleteFromCart";
+    var id;
+    $scope.setId = function (Id) {
+        id = Id;
+    };
+    $scope.addPassToUser = function () {
+        var url = "addPassToUser";
         var data = {
             id: id
         };
         $http.post(url, data, config).then(function (response) {
-            $window.location.href = '/cart';
+            $window.location.href = '/home';
         });
     };
 
@@ -152,42 +111,6 @@ app.controller('postController', function ($scope, $http, $location, $window) {
         });
     };
 
-    $scope.deleteDriver = function () {
-        var url = "deleteDriver";
-        var data = {
-            id: id
-        };
-        $http.post(url, data, config).then(function (response) {
-            $window.location.href = '/admin';
-        });
-    };
-
-    $scope.updateUser = function () {
-        var url = "updateUser";
-        var name1 = $scope.name;
-        var password1 = $scope.password;
-        var data = {
-            id: id,
-            name: name1,
-            password: password1,
-            address: $scope.address1
-        };
-        $http.post(url, data, config).then(function (response) {
-            if ((name1 != null && name1 !== "") || (password1 != null && password1 !== "")) {
-                $window.location.href = '/logout';
-            } else {
-                $window.location.href = '/information';
-            }
-        });
-    };
-
-    $scope.confirmCart = function () {
-        var url = "confirmCart";
-        $http.post(url, config).then(function (response) {
-            $window.location.href = '/cart';
-        });
-    };
-
     $scope.goToLogin = function () {
         $window.location.href = '/login';
     };
@@ -196,24 +119,9 @@ app.controller('postController', function ($scope, $http, $location, $window) {
         $window.location.href = '/information';
     };
 
-    $scope.getCost = function (foods) {
-        var sum = 0;
-        for (i = 0; i < foods.length; i++) {
-            sum += foods[i].price;
-        }
-        return sum;
-    };
 
-    $scope.addCartsToDriver = function () {
-        var url = "addCartsToDriver";
-        var data = id + " " + $scope.ids;
-        $http.post(url, data).then(function (response) {
-            $window.location.href = '/man';
-        });
-    };
-
-    $scope.addDriver = function () {
-        var url = "addDriver";
+    $scope.addTrainer = function () {
+        var url = "addTrainer";
         var data = {
             name: $scope.name,
             phone: $scope.phone

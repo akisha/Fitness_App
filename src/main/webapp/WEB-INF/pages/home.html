@@ -69,45 +69,48 @@
             <h1>Fitness Club</h1>
         </div>
     </header>
-
-    <table class="table bg-color2" ng-init="getWorkoutTypes()">
+    <table class="table bg-color2">
         <thead>
         <tr>
+
             <th class="text-center">
-                <button data-ng-click="setSort('Все занятия')"
-                        class="btn btn-link text-white btn-lg">Все занятия</button>
+                <a href="http://localhost:8080/home" class="btn btn-default">Все занятия</a>
             </th>
-            <th ng-repeat="type in types" class="text-center">
-                <button data-ng-click="setSort(type.name1)"
-                        class="btn btn-link text-white btn-lg">{{type.name1}}</button>
+            <th class="text-center">
+                <a href="http://localhost:8080/home1" class="btn btn-default">Все абонементы</a>
             </th>
         </tr>
         </thead>
     </table>
+    <table class="table borderless bg-color3" ng-init="getWorkouts()">
+        <thead>
+        <tr>
+            <th>Название занятия</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Осталось</th>
+            <th>Статус</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="workout in workouts" ng-controller="postController">
+            <td>{{workout.name}}</td>
+            <td>{{workout.description}}</td>
+            <td>{{workout.price}}</td>
+            <td>{{workout.remain}}</td>
+            <td>{{workout.status}}</td>
+            <td><form ng-if="username!='anonymousUser'" name="post" ng-submit="addWorkoutToUser()">
+                <button type="submit" ng-click="setId(workout.id)"
+                        class="btn btn-primary">Забронировать</button>
+            </form>
+                <form ng-if="username=='anonymousUser'" name="post" ng-submit="goToLogin()">
+                    <button type="submit" class="btn btn-primary">Забронировать</button>
+                </form></td>
+        </tr>
+        </tbody>
+    </table>
 
-    <!-- Page Features -->
-    <div class="row text-center" ng-init="getFoods()">
-        <div ng-repeat="food in foods" class="col-lg-3 col-md-6 mb-4"
-            ng-if="food.type.name==sort || sort=='Все товары'">
-            <div class="card">
-                <img class="card-img-top" src="/resources/photos/{{food.id}}.jpg" alt="">
-                <div class="card-body">
-                    <h4 class="card-title">{{food.name}}</h4>
-                    <p class="card-text">{{food.description}}</p>
-                </div>
-                <div class="card-footer" ng-controller="postController">
-                    <h4 class="card-text text-danger">{{food.price}} руб.</h4>
-                    <form ng-if="username!='anonymousUser'" name="post" ng-submit="addFoodToCart()">
-                        <button type="submit" ng-click="setId(food.id)"
-                                class="btn btn-primary">Заказать</button>
-                    </form>
-                    <form ng-if="username=='anonymousUser'" name="post" ng-submit="goToLogin()">
-                        <button type="submit" class="btn btn-primary">Заказать</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>
 
 

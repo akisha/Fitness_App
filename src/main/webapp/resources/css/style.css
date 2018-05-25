@@ -14,7 +14,7 @@ body {
 }
 
 .bg-color3 {
-  background-color: rgba(38, 79, 164, 0.23);
+  background-color: #ffffff;
 }
 
 .bg-color4 {
@@ -30,6 +30,16 @@ body{
   color: #000000;
   background: url(/resources/photos/bg.jpg);
   line-height:20px;
+}
+
+.h3{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size:18px;
+    font-weight:normal;
+    color: #ffffff;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    text-align: left;
 }
 
 header {
@@ -64,7 +74,6 @@ header {
   margin: 0 auto;
   font: 12px Arial, Helvetica, sans-serif;
   color: #ffffff;
-;
 }
 
 .form-signin .form-control {
