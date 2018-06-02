@@ -5,14 +5,14 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.url">jdbc:mysql://sql7.freesqldatabase.com:3306/sql7239761</property>
+        <property name="hibernate.connection.url">jdbc:mysql://sql7.freesqldatabase.com:3306/sql7241038</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.characterEncoding">utf8</property>
 
-        <property name="hibernate.connection.username">sql7239761</property>
-        <property name="hibernate.connection.password">5mI2ifTEE2</property>
+        <property name="hibernate.connection.username">sql7241038</property>
+        <property name="hibernate.connection.password">Fdc61S1HJZ</property>
 
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.show_sql">true</property>
 
         <mapping class="system.entities.User"/>

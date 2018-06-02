@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="sql7239761@sql7.freesqldatabase.com" uuid="10c90da1-4c9c-4710-a161-88f785390acc">
+    <data-source source="LOCAL" name="sql7241038@sql7.freesqldatabase.com" uuid="04bd65bb-11de-4dc9-bf0c-e6d3cd7ef35c">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://sql7.freesqldatabase.com:3306/sql7239761</jdbc-url>
+      <jdbc-url>jdbc:mysql://sql7.freesqldatabase.com:3306/sql7241038</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
